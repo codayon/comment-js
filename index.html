@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple Comment</title>
+    <style>
+      body {
+        font-family: sans-serif; /* A clean, readable font */
+        margin: 20px; /* Add some space around the content */
+        background-color: #f4f4f4; /* A light background color */
+      }
+
+      .nasta {
+        padding: 10px; /* Some padding inside the paragraph */
+        background-color: #e0f7fa; /* A light blue background */
+        border: 1px solid #b2ebf2; /* A subtle border */
+        margin-bottom: 15px; /* Space below the paragraph */
+        border-radius: 5px; /* Slightly rounded corners */
+      }
+
+      .fasta {
+        width: 100%; /* Make the textarea take full width */
+        padding: 10px; /* Padding inside the textarea */
+        margin-bottom: 10px; /* Space below the textarea */
+        border: 1px solid #ccc; /* A light gray border */
+        border-radius: 5px; /* Slightly rounded corners */
+        box-sizing: border-box; /* Include padding and border in the element's total width and height */
+      }
+
+      .rasta {
+        background-color: #4caf50; /* A green background for the button */
+        color: white; /* White text on the button */
+        padding: 10px 15px; /* Padding inside the button */
+        border: none; /* Remove default button border */
+        border-radius: 5px; /* Rounded corners for the button */
+        cursor: pointer; /* Change cursor to a pointer on hover */
+      }
+
+      .rasta:hover {
+        background-color: #45a049; /* Darker green on hover */
+      }
+
+      .casta {
+        color: red; /* Make the error message red */
+        display: none; /* Initially hidden */
+        margin-top: 5px; /* Some space above the error message */
+      }
+    </style>
+  </head>
+  <body>
+    <p class="nasta"></p>
+    <textarea
+      name="basta"
+      class="fasta"
+      placeholder="Type your comment here..."></textarea>
+    <button class="rasta">Submit</button>
+    <h3 class="casta">Error: No input found</h3>
+    <script>
+      let nasta = document.querySelector(".nasta");
+      let fasta = document.querySelector(".fasta");
+      let rasta = document.querySelector(".rasta");
+      let casta = document.querySelector(".casta");
+      rasta.addEventListener("click", () => {
+        if (fasta.value == "") {
+          casta.style.display = "block";
+        } else {
+          casta.style.display = "none";
+          nasta.innerHTML = `${fasta.value}`;
+          fasta.value = "";
+        }
+      });
+    </script>
+  </body>
+</html>
