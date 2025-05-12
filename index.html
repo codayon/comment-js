@@ -1,75 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Simple Comment</title>
-    <style>
-      body {
-        font-family: sans-serif; /* A clean, readable font */
-        margin: 20px; /* Add some space around the content */
-        background-color: #f4f4f4; /* A light background color */
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Comment JS</title>
+  <style>
+    /* Reset default margins and set base font */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
 
-      .nasta {
-        padding: 10px; /* Some padding inside the paragraph */
-        background-color: #e0f7fa; /* A light blue background */
-        border: 1px solid #b2ebf2; /* A subtle border */
-        margin-bottom: 15px; /* Space below the paragraph */
-        border-radius: 5px; /* Slightly rounded corners */
-      }
+    /* Center the content and add padding */
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      background-color: #f0f2f5;
+      padding: 20px;
+    }
 
-      .fasta {
-        width: 100%; /* Make the textarea take full width */
-        padding: 10px; /* Padding inside the textarea */
-        margin-bottom: 10px; /* Space below the textarea */
-        border: 1px solid #ccc; /* A light gray border */
-        border-radius: 5px; /* Slightly rounded corners */
-        box-sizing: border-box; /* Include padding and border in the element's total width and height */
-      }
+    /* Style the comment display area */
+    .nasta {
+      background-color: #ffffff;
+      padding: 15px 20px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 500px;
+      min-height: 50px;
+      color: #333;
+      font-size: 16px;
+    }
 
-      .rasta {
-        background-color: #4caf50; /* A green background for the button */
-        color: white; /* White text on the button */
-        padding: 10px 15px; /* Padding inside the button */
-        border: none; /* Remove default button border */
-        border-radius: 5px; /* Rounded corners for the button */
-        cursor: pointer; /* Change cursor to a pointer on hover */
-      }
+    /* Style the textarea */
+    .fasta {
+      width: 100%;
+      max-width: 500px;
+      min-height: 100px;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 14px;
+      resize: vertical;
+      margin-bottom: 10px;
+      transition: border-color 0.3s ease;
+    }
 
-      .rasta:hover {
-        background-color: #45a049; /* Darker green on hover */
-      }
+    .fasta:focus {
+      outline: none;
+      border-color: #007bff;
+      box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+    }
 
-      .casta {
-        color: red; /* Make the error message red */
-        display: none; /* Initially hidden */
-        margin-top: 5px; /* Some space above the error message */
+    /* Style the submit button */
+    .rasta {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .rasta:hover {
+      background-color: #0056b3;
+    }
+
+    /* Style the error message */
+    .casta {
+      display: none;
+      color: #dc3545;
+      font-size: 14px;
+      margin-top: 10px;
+      background-color: #fff5f5;
+      padding: 10px;
+      border-radius: 5px;
+      width: 100%;
+      max-width: 500px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <p class="nasta"></p>
+  <textarea name="basta" class="fasta" placeholder="Write your comment..."></textarea>
+  <button class="rasta">Submit</button>
+  <h3 class="casta">Error: No input found</h3>
+  <script>
+    let nasta = document.querySelector(".nasta");
+    let fasta = document.querySelector(".fasta");
+    let rasta = document.querySelector(".rasta");
+    let casta = document.querySelector(".casta");
+    rasta.addEventListener("click", () => {
+      if (fasta.value == "") {
+        casta.style.display = "block";
+      } else {
+        nasta.innerHTML = `${fasta.value}`;
+        fasta.value = ""; // This line clears the textarea
+        casta.style.display = "none"; // Optionally hide the error message if it was visible
       }
-    </style>
-  </head>
-  <body>
-    <p class="nasta"></p>
-    <textarea
-      name="basta"
-      class="fasta"
-      placeholder="Type your comment here..."></textarea>
-    <button class="rasta">Submit</button>
-    <h3 class="casta">Error: No input found</h3>
-    <script>
-      let nasta = document.querySelector(".nasta");
-      let fasta = document.querySelector(".fasta");
-      let rasta = document.querySelector(".rasta");
-      let casta = document.querySelector(".casta");
-      rasta.addEventListener("click", () => {
-        if (fasta.value == "") {
-          casta.style.display = "block";
-        } else {
-          casta.style.display = "none";
-          nasta.innerHTML = `${fasta.value}`;
-          fasta.value = "";
-        }
-      });
-    </script>
-  </body>
+    });
+  </script>
+</body>
 </html>
