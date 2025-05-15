@@ -1,112 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Comment JS</title>
-  <style>
-    /* Reset default margins and set base font */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-    }
-
-    /* Center the content and add padding */
-    body {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      min-height: 100vh;
-      background-color: #f0f2f5;
-      padding: 20px;
-    }
-
-    /* Style the comment display area */
-    .nasta {
-      background-color: #ffffff;
-      padding: 15px 20px;
-      margin-bottom: 20px;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      width: 100%;
-      max-width: 500px;
-      min-height: 50px;
-      color: #333;
-      font-size: 16px;
-    }
-
-    /* Style the textarea */
-    .fasta {
-      width: 100%;
-      max-width: 500px;
-      min-height: 100px;
-      padding: 10px;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      font-size: 14px;
-      resize: vertical;
-      margin-bottom: 10px;
-      transition: border-color 0.3s ease;
-    }
-
-    .fasta:focus {
-      outline: none;
-      border-color: #007bff;
-      box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
-    }
-
-    /* Style the submit button */
-    .rasta {
-      padding: 10px 20px;
-      background-color: #007bff;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      font-size: 14px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    .rasta:hover {
-      background-color: #0056b3;
-    }
-
-    /* Style the error message */
-    .casta {
-      display: none;
-      color: #dc3545;
-      font-size: 14px;
-      margin-top: 10px;
-      background-color: #fff5f5;
-      padding: 10px;
-      border-radius: 5px;
-      width: 100%;
-      max-width: 500px;
-      text-align: center;
-    }
-  </style>
-</head>
-<body>
-  <p class="nasta"></p>
-  <textarea name="basta" class="fasta" placeholder="Write your comment..."></textarea>
-  <button class="rasta">Submit</button>
-  <h3 class="casta">Error: No input found</h3>
-  <script>
-    let nasta = document.querySelector(".nasta");
-    let fasta = document.querySelector(".fasta");
-    let rasta = document.querySelector(".rasta");
-    let casta = document.querySelector(".casta");
-    rasta.addEventListener("click", () => {
-      if (fasta.value == "") {
-        casta.style.display = "block";
-      } else {
-        nasta.innerHTML = `${fasta.value}`;
-        fasta.value = ""; // This line clears the textarea
-        casta.style.display = "none"; // Optionally hide the error message if it was visible
-      }
-    });
-  </script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AppendChild Demo</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <h1>AppendChild Demo</h1>
+    <input type="text" id="userInput" placeholder="Type something..." />
+    <button onclick="addText()">Add Text</button>
+    <div id="output"></div>
+    <script src="./main.js"></script>
+  </body>
 </html>
